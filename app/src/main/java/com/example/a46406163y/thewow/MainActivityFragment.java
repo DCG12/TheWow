@@ -1,6 +1,8 @@
 package com.example.a46406163y.thewow;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -84,6 +86,8 @@ public class MainActivityFragment extends Fragment {
     private class RefreshDataTask extends AsyncTask<Void, Object, ArrayList<WOW>> {
         @Override
         protected ArrayList<WOW> doInBackground(Void... voids) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+
             APIWOW api = new APIWOW();
             ArrayList<WOW> result = api.getInfoBoss();
 
