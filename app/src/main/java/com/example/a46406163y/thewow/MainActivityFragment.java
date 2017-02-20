@@ -25,8 +25,8 @@ import java.util.Arrays;
 public class MainActivityFragment extends Fragment {
 
 
-    private ArrayList<String> items;
-    private ArrayAdapter<String> adapter;
+    private ArrayList<WOW> items;
+    private ArrayAdapter<WOW> adapter;
 
     public MainActivityFragment() {
     }
@@ -79,6 +79,12 @@ public class MainActivityFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        refresh();
+    }
+
     private void refresh() {
         RefreshDataTask task = new RefreshDataTask();
         task.execute();
@@ -87,9 +93,15 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected ArrayList<WOW> doInBackground(Void... voids) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-
+            String level = preferences.getString("level", "80");
+            String tipusConsulta = preferences.getString("tipus_consulta", "level");
             APIWOW api = new APIWOW();
-            ArrayList<WOW> result = api.getInfoBoss();
+            ArrayList<WOW> result =null;
+            if (tipusConsulta.equals("level")) {
+                result = api.getLevelBoss(level);
+            } else {
+                result = api.getLevelBoss(level);
+            }
 
             Log.d("DEBUG", result.toString());
 
@@ -103,7 +115,7 @@ public class MainActivityFragment extends Fragment {
 
             adapter.clear();
             for (int i = 0; i < wow.size(); i++) {
-                adapter.add(wow.get(i).getName());
+                adapter.add(wow);
             }
         }
     }
