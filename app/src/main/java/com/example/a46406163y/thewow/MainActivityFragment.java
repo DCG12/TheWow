@@ -61,6 +61,12 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WOW wow = (WOW) adapterView.getItemAtPosition(i);
+
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+
+                intent.putExtra("wow", wow);
+
+                startActivity(intent);
             }
         }
 
