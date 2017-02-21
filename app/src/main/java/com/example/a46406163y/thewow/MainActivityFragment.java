@@ -114,7 +114,7 @@ public class MainActivityFragment extends Fragment {
 
             adapter.clear();
             for (int i = 0; i < wow.size(); i++) {
-                adapter.add(wow);
+                adapter.addAll(wow);
             }
         }
     }

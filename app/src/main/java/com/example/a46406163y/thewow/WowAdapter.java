@@ -2,6 +2,8 @@ package com.example.a46406163y.thewow;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 import java.util.List;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,4 +37,5 @@ public class WowAdapter extends ArrayAdapter<WOW> {
 
         return convertView;
     }
+
 }
