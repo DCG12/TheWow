@@ -1,5 +1,6 @@
 package com.example.a46406163y.thewow;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -45,15 +47,25 @@ public class MainActivityFragment extends Fragment {
 
         ListView lvWow = (ListView) view.findViewById(R.id.lvWow);
 
-
-
         items = new ArrayList<>();
         adapter = new WowAdapter(
                 getContext(),
                 R.layout.lv_wow_row,
                 items
         );
+
         lvWow.setAdapter(adapter);
+
+        lvWow.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                WOW wow = (WOW) adapterView.getItemAtPosition(i);
+            }
+        }
+
+        );
+
 
         return view;
     }
