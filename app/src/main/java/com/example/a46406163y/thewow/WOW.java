@@ -1,7 +1,9 @@
 package com.example.a46406163y.thewow;
 
 
-public class WOW {
+import java.io.Serializable;
+
+public class WOW implements Serializable {
     private String name;
     private String description;
     private int health;

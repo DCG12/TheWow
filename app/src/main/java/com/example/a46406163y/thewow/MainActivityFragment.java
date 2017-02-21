@@ -26,7 +26,7 @@ public class MainActivityFragment extends Fragment {
 
 
     private ArrayList<WOW> items;
-    private ArrayAdapter<WOW> adapter;
+    private WowAdapter adapter;
 
     public MainActivityFragment() {
     }
@@ -48,10 +48,9 @@ public class MainActivityFragment extends Fragment {
 
 
         items = new ArrayList<>();
-        adapter = new ArrayAdapter<>(
+        adapter = new WowAdapter(
                 getContext(),
                 R.layout.lv_wow_row,
-                R.id.tvWow,
                 items
         );
         lvWow.setAdapter(adapter);
