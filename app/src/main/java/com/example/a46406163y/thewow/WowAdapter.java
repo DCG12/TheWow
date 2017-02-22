@@ -31,9 +31,9 @@ public class WowAdapter extends ArrayAdapter<WOW> {
             convertView = inflater.inflate(R.layout.lv_wow_row, parent, false);
         }
 
-        TextView lvCardName = (TextView) convertView.findViewById(R.id.lvWowName);
+        TextView lvWowName = (TextView) convertView.findViewById(R.id.lvWowName);
 
-        lvCardName.setText(wow.getName());
+        lvWowName.setText(wow.getName());
 
         return convertView;
     }

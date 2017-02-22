@@ -132,7 +132,7 @@ public class MainActivityFragment extends Fragment {
 
             adapter.clear();
             for (int i = 0; i < wow.size(); i++) {
-                adapter.addAll(wow);
+                adapter.addAll(wow.get(i));
             }
         }
     }
