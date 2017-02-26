@@ -32,8 +32,11 @@ public class WowAdapter extends ArrayAdapter<WOW> {
         }
 
         TextView lvWowName = (TextView) convertView.findViewById(R.id.lvWowName);
-
+        TextView lvWowLevel = (TextView) convertView.findViewById(R.id.lvWowLvl);
         lvWowName.setText(wow.getName());
+        int level = wow.getLevel();
+        String lvl = Integer.toString(level);
+        lvWowLevel.setText(lvl);
 
         return convertView;
     }

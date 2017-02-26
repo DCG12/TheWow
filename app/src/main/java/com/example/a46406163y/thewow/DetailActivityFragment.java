@@ -14,6 +14,7 @@ public class DetailActivityFragment extends Fragment {
 
     private View view;
     private TextView lvWowName;
+    private TextView lvWowLevel;
 
     public DetailActivityFragment() {
     }
@@ -40,6 +41,12 @@ public class DetailActivityFragment extends Fragment {
         Log.d("BOSS", wow.toString());
 
             lvWowName = (TextView) view.findViewById(R.id.lvWowName);
+            lvWowLevel = (TextView) view.findViewById(R.id.lvWowLvl);
+            int level = wow.getLevel();
+            String lvl = Integer.toString(level);
+
+        lvWowName.setText(wow.getName());
+        lvWowLevel.setText(lvl);
     }
 
 }
