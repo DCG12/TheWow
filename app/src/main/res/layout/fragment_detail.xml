@@ -22,15 +22,61 @@
       />
 
     <TextView
-        android:id="@+id/lvWowLvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text=""
+        android:text="Level: "
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="@+id/lvWowName"
         app:layout_constraintTop_toBottomOf="@+id/lvWowName"
         />
+    <TextView
+        android:id="@+id/lvWowLvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Level: "
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/lvWowName"
+        app:layout_constraintTop_toBottomOf="@+id/lvWowName"
+        />
+    <TextView
 
-
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Healt: "
+    android:textSize="14sp"
+    app:layout_constraintLeft_toLeftOf="@+id/lvWowLvl"
+    app:layout_constraintTop_toBottomOf="@+id/lvWowLvl"
+    />
+    <TextView
+        android:id="@+id/lvWowHealt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Healt: "
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/lvWowLvl"
+        app:layout_constraintTop_toBottomOf="@+id/lvWowLvl"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Description: "
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/lvWowHealt"
+        app:layout_constraintTop_toBottomOf="@+id/lvWowHealt"
+        />
+    <TextView
+        android:id="@+id/lvWowDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text=" "
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/lvWowHealt"
+        app:layout_constraintTop_toBottomOf="@+id/lvWowHealt"
+        />
 </android.support.constraint.ConstraintLayout>

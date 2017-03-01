@@ -1,6 +1,10 @@
 package com.example.a46406163y.thewow;
 
 
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.io.Serializable;
 
 public class WOW implements Serializable {

@@ -15,6 +15,8 @@ public class DetailActivityFragment extends Fragment {
     private View view;
     private TextView lvWowName;
     private TextView lvWowLevel;
+    private TextView lvWowHealt;
+    private TextView lvWowDescrpt;
 
     public DetailActivityFragment() {
     }
@@ -40,13 +42,20 @@ public class DetailActivityFragment extends Fragment {
     private void updateUi(WOW wow) {
         Log.d("BOSS", wow.toString());
 
-            lvWowName = (TextView) view.findViewById(R.id.lvWowName);
-            lvWowLevel = (TextView) view.findViewById(R.id.lvWowLvl);
-            int level = wow.getLevel();
-            String lvl = Integer.toString(level);
+        int level = wow.getLevel();
+        String lvl = Integer.toString(level);
+        int healt = wow.getHealth();
+        String hlt = Integer.toString(healt);
+
+        lvWowName = (TextView) view.findViewById(R.id.lvWowName);
+        lvWowLevel = (TextView) view.findViewById(R.id.lvWowLvl);
+        lvWowHealt = (TextView) view.findViewById(R.id.lvWowHealt);
+        lvWowDescrpt = (TextView) view.findViewById(R.id.lvWowDesc);
 
         lvWowName.setText(wow.getName());
         lvWowLevel.setText(lvl);
+        lvWowHealt.setText(hlt);
+        lvWowDescrpt.setText(wow.getDescription());
     }
 
 }

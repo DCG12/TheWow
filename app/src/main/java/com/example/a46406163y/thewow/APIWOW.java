@@ -49,6 +49,8 @@ public class APIWOW {
                 boss.setName(object.getString("name"));
                 boss.setHealth(object.getInt("health"));
                 boss.setLevel(object.getInt("level"));
+                if(object.has("description")){
+                boss.setDescription(object.getString("description"));}
                 bosses.add(boss);
             }
 
