@@ -17,6 +17,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.databinding.DataBindingUtil;
+import android.net.Uri;
+import nl.littlerobots.cupboard.tools.provider.UriHelper;
+import static nl.qbusict.cupboard.CupboardFactory.cupboard;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
