@@ -73,17 +73,23 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WOW wow = (WOW) adapterView.getItemAtPosition(i);
+                if (!esTablet()) {
+                    Intent intent = new Intent(getContext(), DetailActivity.class);
 
-                Intent intent = new Intent(getContext(), DetailActivity.class);
+                    intent.putExtra("wow", wow);
 
-                intent.putExtra("wow", wow);
-
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         }
         );
         return view;
     }
+
+    boolean esTablet() {
+        return getResources().getBoolean(R.bool.tablet);
+    }
+
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_wow_fragment, menu);
