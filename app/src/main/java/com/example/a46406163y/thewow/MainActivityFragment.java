@@ -21,6 +21,8 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import nl.littlerobots.cupboard.tools.provider.UriHelper;
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
+import android.app.ProgressDialog;
+import com.example.a46406163y.thewow.databinding.FragmentMainBinding;
 
 
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class MainActivityFragment extends Fragment {
 
     private ArrayList<WOW> items;
     private WowAdapter adapter;
+    private ProgressDialog dialog;
 
     public MainActivityFragment() {
     }
@@ -48,9 +51,10 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        FragmentMainBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
 
-        ListView lvWow = (ListView) view.findViewById(R.id.lvWow);
+
+        View view = binding.getRoot();
 
         items = new ArrayList<>();
         adapter = new WowAdapter(
@@ -59,9 +63,12 @@ public class MainActivityFragment extends Fragment {
                 items
         );
 
-        lvWow.setAdapter(adapter);
+        dialog = new ProgressDialog(getContext());
+        dialog.setMessage("Cargando...");
 
-        lvWow.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        binding.lvWow.setAdapter(adapter);
+
+        binding.lvWow.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -74,10 +81,7 @@ public class MainActivityFragment extends Fragment {
                 startActivity(intent);
             }
         }
-
         );
-
-
         return view;
     }
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -104,7 +108,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        refresh();
+
     }
 
     private void refresh() {
@@ -112,6 +116,12 @@ public class MainActivityFragment extends Fragment {
         task.execute();
     }
     private class RefreshDataTask extends AsyncTask<Void, Object, ArrayList<WOW>> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.show();
+        }
+
         @Override
         protected ArrayList<WOW> doInBackground(Void... voids) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -139,6 +149,7 @@ public class MainActivityFragment extends Fragment {
             for (int i = 0; i < wow.size(); i++) {
                 adapter.addAll(wow.get(i));
             }
+            dialog.dismiss();
         }
     }
 }

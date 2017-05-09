@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import android.databinding.DataBindingUtil;
+import com.example.a46406163y.thewow.databinding.LvWowRowBinding;
 
 
 public class WowAdapter extends ArrayAdapter<WOW> {
@@ -26,17 +28,20 @@ public class WowAdapter extends ArrayAdapter<WOW> {
          WOW wow = getItem(position);
         Log.w("XXXX", wow.toString());
 
+        LvWowRowBinding binding;
+
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.lv_wow_row, parent, false);
+            binding = DataBindingUtil.inflate(inflater, R.layout.lv_wow_row, parent, false);
         }
-
-        TextView lvWowName = (TextView) convertView.findViewById(R.id.lvWowName);
-        TextView lvWowLevel = (TextView) convertView.findViewById(R.id.lvWowLvl);
-        lvWowName.setText(wow.getName());
+        else {
+            binding = DataBindingUtil.getBinding(convertView);
+        }
+        
+        binding.lvWowName.setText(wow.getName());
         int level = wow.getLevel();
         String lvl = Integer.toString(level);
-        lvWowLevel.setText(lvl);
+        binding.lvWowLvl.setText(lvl);
 
         return convertView;
     }

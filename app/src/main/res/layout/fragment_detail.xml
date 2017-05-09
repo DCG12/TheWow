@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context="com.example.a46406163y.thewow.DetailActivityFragment">
 
     <TextView
         android:id="@+id/lvWowName"
@@ -30,6 +31,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/lvWowName"
         app:layout_constraintTop_toBottomOf="@+id/lvWowName"
         />
+
     <TextView
         android:id="@+id/lvWowLvl"
         android:layout_width="wrap_content"
@@ -40,8 +42,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/lvWowName"
         app:layout_constraintTop_toBottomOf="@+id/lvWowName"
         />
-    <TextView
 
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
@@ -50,6 +52,7 @@
     app:layout_constraintLeft_toLeftOf="@+id/lvWowLvl"
     app:layout_constraintTop_toBottomOf="@+id/lvWowLvl"
     />
+
     <TextView
         android:id="@+id/lvWowHealt"
         android:layout_width="wrap_content"
@@ -60,6 +63,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/lvWowLvl"
         app:layout_constraintTop_toBottomOf="@+id/lvWowLvl"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,6 +73,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/lvWowHealt"
         app:layout_constraintTop_toBottomOf="@+id/lvWowHealt"
         />
+
     <TextView
         android:id="@+id/lvWowDesc"
         android:layout_width="wrap_content"
@@ -79,4 +84,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/lvWowHealt"
         app:layout_constraintTop_toBottomOf="@+id/lvWowHealt"
         />
+
 </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.databinding.DataBindingUtil;
+
+import com.example.a46406163y.thewow.databinding.FragmentDetailBinding;
+
 
 public class DetailActivityFragment extends Fragment {
 
@@ -17,6 +21,7 @@ public class DetailActivityFragment extends Fragment {
     private TextView lvWowLevel;
     private TextView lvWowHealt;
     private TextView lvWowDescrpt;
+    private FragmentDetailBinding binding;
 
     public DetailActivityFragment() {
     }
@@ -24,7 +29,8 @@ public class DetailActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.fragment_detail, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false);
+        View view = binding.getRoot();
 
         Intent i = getActivity().getIntent();
 
@@ -47,15 +53,10 @@ public class DetailActivityFragment extends Fragment {
         int healt = wow.getHealth();
         String hlt = Integer.toString(healt);
 
-        lvWowName = (TextView) view.findViewById(R.id.lvWowName);
-        lvWowLevel = (TextView) view.findViewById(R.id.lvWowLvl);
-        lvWowHealt = (TextView) view.findViewById(R.id.lvWowHealt);
-        lvWowDescrpt = (TextView) view.findViewById(R.id.lvWowDesc);
-
-        lvWowName.setText(wow.getName());
-        lvWowLevel.setText(lvl);
-        lvWowHealt.setText(hlt);
-        lvWowDescrpt.setText(wow.getDescription());
+        binding.lvWowName.setText(wow.getName());
+        binding.lvWowLvl.setText(lvl);
+        binding.lvWowHealt.setText(hlt);
+        binding.lvWowDesc.setText(wow.getDescription());
     }
 
 }
