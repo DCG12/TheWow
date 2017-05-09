@@ -74,6 +74,7 @@ public class MainActivityFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WOW wow = (WOW) adapterView.getItemAtPosition(i);
                 if (!esTablet()) {
+       
                     Intent intent = new Intent(getContext(), DetailActivity.class);
 
                     intent.putExtra("wow", wow);
@@ -156,6 +157,8 @@ public class MainActivityFragment extends Fragment {
                 adapter.addAll(wow.get(i));
             }
             dialog.dismiss();
+
+
         }
     }
 }

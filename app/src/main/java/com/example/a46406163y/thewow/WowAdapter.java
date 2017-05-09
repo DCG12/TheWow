@@ -43,7 +43,7 @@ public class WowAdapter extends ArrayAdapter<WOW> {
         String lvl = Integer.toString(level);
         binding.lvWowLvl.setText(lvl);
 
-        return convertView;
+        return binding.getRoot();
     }
 
 }
