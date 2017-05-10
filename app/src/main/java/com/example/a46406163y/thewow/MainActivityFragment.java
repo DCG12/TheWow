@@ -23,6 +23,7 @@ import nl.littlerobots.cupboard.tools.provider.UriHelper;
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 import android.app.ProgressDialog;
 import com.example.a46406163y.thewow.databinding.FragmentMainBinding;
+import com.alexvasilkov.events.Events;
 
 
 import java.util.ArrayList;
@@ -74,12 +75,14 @@ public class MainActivityFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WOW wow = (WOW) adapterView.getItemAtPosition(i);
                 if (!esTablet()) {
-       
+
                     Intent intent = new Intent(getContext(), DetailActivity.class);
 
                     intent.putExtra("wow", wow);
 
                     startActivity(intent);
+                } else {
+                    Events.create("wow-selected").param(wow).post();
                 }
             }
         }

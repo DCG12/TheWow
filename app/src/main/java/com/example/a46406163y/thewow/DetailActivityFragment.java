@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.databinding.DataBindingUtil;
+import com.alexvasilkov.events.Events;
 
 import com.example.a46406163y.thewow.databinding.FragmentDetailBinding;
 
@@ -24,6 +25,13 @@ public class DetailActivityFragment extends Fragment {
     private FragmentDetailBinding binding;
 
     public DetailActivityFragment() {
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Events.register(this);
     }
 
     @Override
@@ -43,6 +51,11 @@ public class DetailActivityFragment extends Fragment {
         }
 
         return view;
+    }
+
+    @Events.Subscribe("wow-selected")
+    private void onMovieSelected(WOW wow) {
+        updateUi(wow);
     }
 
     private void updateUi(WOW wow) {
